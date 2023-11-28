@@ -12,13 +12,11 @@ class BooksModel(db.Model):
 	author = db.Column(db.String(225), nullable=False)
 	quantity = db.Column(db.Integer)
 
-	def __init__(self, id, title, author, quantity):
-		self.id = id
+	def __init__(self, title, author, quantity):
 		self.title = title
 		self.author = author
 		self.quantity = quantity
 
-	@property
-	def serialize(self):
+	def to_json(self):
 		return {"title": self.title, "author": self.author, "quantity": self.quantity}
 	
