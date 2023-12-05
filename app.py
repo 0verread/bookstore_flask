@@ -1,16 +1,12 @@
-<<<<<<< HEAD
-from flask import Flask, jsonify, make_response
-=======
 from flask import Flask, jsonify, make_response, request, abort
->>>>>>> week-2
 from flask_sqlalchemy import SQLAlchemy
-from os import environ
+import os
 
 from src.models import BooksModel
 from src import db
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bookstoredb.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URI")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.app_context().push()
 

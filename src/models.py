@@ -16,6 +16,7 @@ class BooksModel(db.Model):
 		self.title = title
 		self.author = author
 		self.quantity = quantity
+
 	def to_json(self):
 		return {"title": self.title, "author": self.author, "quantity": self.quantity}
-	
+
